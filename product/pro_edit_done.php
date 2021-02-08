@@ -37,11 +37,7 @@
     $pro_gazou_name_old=$_POST['gazou_name_old'];
     $pro_gazou_name=$_POST['gazou_name'];
 
-    $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
-    $user='root';
-    $password='root';
-    $dbh=new PDO($dsn, $user, $password);
-    $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    require('../db/dbconnect.php');
 
     $sql='UPDATE mst_product SET name=?,price=?,gazou=? WHERE code=?';
     $stmt = $dbh->prepare($sql);

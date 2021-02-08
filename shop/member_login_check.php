@@ -11,11 +11,7 @@ $member_pass=$post['pass'];
 
 $member_pass=md5($member_pass);
 
-$dsn='mysql:dbname=shop;host=localhost;charset=utf8';
-$user='root';
-$password='root';
-$dbh=new PDO($dsn,$user,$password);
-$dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+require('../db/dbconnect.php');
 
 $sql='SELECT code,name FROM dat_member WHERE email=? AND password=?';
 $stmt=$dbh->prepare($sql);

@@ -27,7 +27,6 @@
   
   try 
   {
-  
     require_once('../common/common.php');
 
     $post=sanitize($_POST);
@@ -35,11 +34,7 @@
     $staff_name=$post['name'];
     $staff_pass=$post['pass'];
 
-    $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
-    $user='root';
-    $password='root';
-    $dbh=new PDO($dsn, $user, $password);
-    $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    require('../db/dbconnect.php');
 
     $sql='UPDATE mst_staff SET name=?,password=? WHERE code=?';
     $stmt = $dbh->prepare($sql);

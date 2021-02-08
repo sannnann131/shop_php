@@ -32,11 +32,7 @@
 
   $pro_code=$_GET['procode'];
 
-  $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
-  $user='root';
-  $password='root';
-  $dbh=new PDO($dsn, $user, $password);  
-  $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+  require('../db/dbconnect.php');
 
   $sql='SELECT name,price,gazou FROM mst_product WHERE code=?';
   $stmt=$dbh->prepare($sql);

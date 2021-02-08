@@ -47,11 +47,7 @@
   $kazu=$_SESSION['kazu'];
   $max=count($cart);
 
-  $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
-  $user='root';
-  $password='root';
-  $dbh=new PDO($dsn,$user,$password);
-  $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+  require('../db/dbconnect.php');
 
   for($i=0;$i<$max;$i++)
   {

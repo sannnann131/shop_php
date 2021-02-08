@@ -27,14 +27,8 @@
   
   try 
   {
-
     $staff_code=$_POST['code'];
-
-    $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
-    $user='root';
-    $password='root';
-    $dbh=new PDO($dsn, $user, $password);
-    $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    require('../db/dbconnect.php');
 
     $sql='DELETE FROM mst_staff WHERE code=?';
     $stmt = $dbh->prepare($sql);

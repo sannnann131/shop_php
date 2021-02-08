@@ -29,16 +29,11 @@
   {
 
     require_once('../common/common.php');
+    require('../db/dbconnect.php');
 
     $post=sanitize($_POST);
     $staff_name=$post['name'];
     $staff_pass=$post['pass'];
-
-    $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
-    $user='root';
-    $password='root';
-    $dbh=new PDO($dsn, $user, $password);
-    $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
     $sql='INSERT INTO mst_staff (name,password) VALUES (?,?)';
     $stmt = $dbh->prepare($sql);

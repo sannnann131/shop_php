@@ -44,9 +44,9 @@
         print '<br/>';
       }
 
-    if($staff_pass=='')
+    if(preg_match('/\A[a-z\d]{6,12}+\z/i',$staff_pass)==0)
       {
-        print 'パスワードが入力されていません。<br/>';
+        print 'パスワードは6桁以上、12桁以下でお願いします。<br/>';
       }
 
     if($staff_pass!=$staff_pass2)

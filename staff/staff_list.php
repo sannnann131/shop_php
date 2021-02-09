@@ -36,7 +36,8 @@
 
     $dbh=null;
 
-    print 'スタッフ一覧<br/><br/>';
+    print 'スタッフ一覧<br/>';
+    print '(注意)参照から見られる、スタッフコードはログインに必要となります。<br/><br/>';
 
     print '<form method="post" action="staff_branch.php">';
     while(true)

@@ -27,9 +27,9 @@
     <form method="post" action="pro_add_check.php" enctype="multipart/form-data">
     商品名を入力してください<br/>
     <input type="text" name="name"  style="width:200px"><br/>
-    価格を入力してください<br/>
+    価格を入力してください(数字のみ)<br/>
     <input type="text" name="price" style="width:50px"><br/>
-    画像を選んでください<br/>
+    画像を選んでください(必須ではありません)<br/>
     <input type="file" name="gazou" style="width:400px"><br/>
     <br/>
     <input type="button" onclick="history.back()" value="戻る">

@@ -73,7 +73,7 @@
   価格<br/>
   <?php print $pro_price;?>円
   <br/>
-  <?php print $disp_gazou; ?>
+  <?php print $disp_gazou;?>
   <br/>
   <br/>
   <form>

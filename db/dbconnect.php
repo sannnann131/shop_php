@@ -1,5 +1,5 @@
 <?php
-  $dsn='mysql:dbname=getenv('DB_NAME');host=getenv('DB_HOSTNAME');charset=utf8';
+  $dsn='mysql:dbname=heroku_55204781f5f56d5;host=us-cdbr-east-03.cleardb.com;charset=utf8';
   $user=getenv('DB_USERNAME');
   $password=getenv('DB_PASSWORD');
   $dbh=new PDO($dsn, $user, $password);

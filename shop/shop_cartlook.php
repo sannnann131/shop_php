@@ -110,7 +110,7 @@
   ?>
   </table>
   <input type="hidden" name="max" value="<?php print $max; ?>">
-  <input type="submit" value="数量変更"><br/>
+  <input type="submit" value="数量変更/カートから削除"><br/>
   <input type="button" onclick="history.back()" value="戻る">
   </form>
   <br/>

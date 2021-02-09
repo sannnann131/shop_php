@@ -31,7 +31,6 @@
 
   print $onamae.'様<br/>';
   print 'ご注文ありがとうございました。<br/>';
-  print $email.'にメールを送りましたのでご確認ください。<br/>';
   print '商品は以下の住所に発送させていただきます。<br/>';
   print '郵便番号：';
   print $postal1.'-'.$postal2.'<br/>';
@@ -39,6 +38,7 @@
   print $address.'<br/>';
   print '電話番号：';
   print $tel.'<br/>';
+  print '(注意)あくまでこれはダミーサイトです';
 
   $cart=$_SESSION['cart'];
   $kazu=$_SESSION['kazu'];
@@ -133,6 +133,16 @@
     exit();
   }
 
+?>
+
+<?php
+session_start();
+$_SESSION=array();
+if(isset($_COOKIE[session_name()])==true)
+{
+  setcookie(session_name(),'',time()-42000,'/');
+}
+session_destroy();
 ?>
 
   <br/>

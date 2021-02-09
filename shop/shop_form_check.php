@@ -83,7 +83,7 @@
 
   if(preg_match('/\A\d{2,5}-?\d{2,5}-?\d{4,5}\z/',$tel)==0)
   {
-    print '電話番号を正確に入力してください。<br/><br/>';
+    print '電話番号を半角数字で正確に入力してください。<br/><br/>';
     $okflg=false;
   }
   else
@@ -95,9 +95,9 @@
 
   if($chumon=='chumontouroku')
     {
-    if($pass=='')
+      if(preg_match('/\A[a-z\d]{6,12}+\z/i',$pass)==0)
     {
-     print 'パスワードが入力されていません。<br/><br/>';
+     print 'パスワードは6桁以上、12桁以下でお願いします。<br/><br/>';
      $okflg=false;
     }
 

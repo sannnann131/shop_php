@@ -28,7 +28,7 @@
     <form method="post" action="staff_add_check.php">
     スタッフ名を入力してください<br/>
     <input type="text" name="name"  style="width:200px"><br/>
-    パスワードを入力してください<br/>
+    パスワードを入力してください(6桁以上、12桁以下)<br/>
     <input type="password" name="pass" style="width:100px"><br/>
     パスワードをもう一度入力してください<br/>
     <input type="password" name="pass2" style="width:100px"><br/>

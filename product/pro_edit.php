@@ -78,7 +78,7 @@
   <br/>
   <?php print $disp_gazou;?>
   <br/>
-  画像を選んでください。<br/>
+  画像を選んでください。(同じ画像の場合でも再度選択してください)<br/>
   <input type="file" name="gazou" style="width:400px"><br/>
   <br/>
   <input type="button" onclick="history.back()" value="戻る">

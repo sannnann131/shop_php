@@ -24,7 +24,20 @@
   <body>
 
   <?php
-  
+    function get_csrf_token() {
+      $TOKEN_LENGTH = 16;
+      $bytes = openssl_random_pseudo_bytes($TOKEN_LENGTH);
+      return bin2hex($bytes);
+      $_SESSION['token'] = get_csrf_token();
+      }
+      $token = $_POST['token'];
+
+      if ($token != $_SESSION['token']) {
+        header('HTTP/1.1 301 Moved Permanently');
+        header('Location: ../error.php');
+        exit();
+      }
+
   try 
   {
 

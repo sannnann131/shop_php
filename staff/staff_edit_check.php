@@ -33,9 +33,12 @@
     $staff_pass=$post['pass'];
     $staff_pass2=$post['pass2'];
 
+    $okflg=true;
+
     if($staff_name=='')
       {
         print 'スタッフ名が入力されていません。<br/>';
+        $okflg=false;
       }
     else
       {
@@ -47,20 +50,17 @@
     if(preg_match('/\A[a-z\d]{6,12}+\z/i',$staff_pass)==0)
       {
         print 'パスワードは6桁以上、12桁以下でお願いします。<br/>';
+        $okflg=false;
       }
 
     if($staff_pass!=$staff_pass2)
       {
         print 'パスワードが一致しません。<br/>';
+        $okflg=false;
       }
 
-    if($staff_name=='' || $staff_pass=='' || $staff_pass!=$staff_pass2)
-      {
-        print '<form>';
-        print '<input type="button" onclick="history.back()" value="戻る">';
-        print '</form>';
-      }
-    else
+
+    if($okflg==true)
       {
         $staff_pass=md5($staff_pass);
         print '<form method="post" action="staff_edit_done.php">';
@@ -70,6 +70,12 @@
         print '<br/>';
         print '<input type="button" onclick="history.back()" value="戻る">';
         print '<input type="submit" value="ＯＫ">';
+        print '</form>';
+      }
+    else
+      {
+        print '<form>';
+        print '<input type="button" onclick="history.back()" value="戻る">';
         print '</form>';
       }
 

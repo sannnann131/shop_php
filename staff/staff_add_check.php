@@ -25,6 +25,12 @@
 
   <?php
 
+  function get_csrf_token() {
+  $TOKEN_LENGTH = 16;
+  $bytes = openssl_random_pseudo_bytes($TOKEN_LENGTH);
+  return bin2hex($bytes);
+  $_SESSION['token'] = get_csrf_token();
+  }
     require_once('../common/common.php');
 
     $post=sanitize($_POST);
@@ -65,6 +71,7 @@
         print '<form method="post" action="staff_add_done.php">';
         print '<input type="hidden" name="name" value="'.$staff_name.'">';
         print '<input type="hidden" name="pass" value="'.$staff_pass.'">';
+        print '<input type="hidden" name="token" value="'.$_SESSION['token'].'">';
         print '<br/>';
         print '<input type="button" onclick="history.back()" value="戻る">';
         print '<input type="submit" value="ＯＫ">';

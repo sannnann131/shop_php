@@ -24,6 +24,13 @@
   <body>
 
   <?php
+      function get_csrf_token() 
+      {
+        $TOKEN_LENGTH = 16;
+        $bytes = openssl_random_pseudo_bytes($TOKEN_LENGTH);
+        return bin2hex($bytes);
+        $_SESSION['token'] = get_csrf_token();
+      }
 
      require_once('../common/common.php');
 
@@ -85,6 +92,7 @@
         print '<input type="hidden" name="price" value="'.$pro_price.'">';
         print '<input type="hidden" name="gazou_name_old" value="'.$pro_gazou_name_old.'">';
         print '<input type="hidden" name="gazou_name" value="'.$pro_gazou['name'].'">';
+        print '<input type="hidden" name="token" value="'.$_SESSION['token'].'">';
         print '<br/>';
         print '<input type="button" onclick="history.back()" value="戻る">';
         print '<input type="submit" value="ＯＫ">';

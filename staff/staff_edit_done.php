@@ -25,6 +25,13 @@
 
   <?php
   
+    $token = $_POST['token'];
+    if ($token != $_SESSION['token']) 
+      {
+      header('HTTP/1.1 301 Moved Permanently');
+      header('Location: ../error.php');
+      exit();
+      }
   try 
   {
     require_once('../common/common.php');

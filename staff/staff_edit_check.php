@@ -29,8 +29,8 @@
       $TOKEN_LENGTH = 16;
       $bytes = openssl_random_pseudo_bytes($TOKEN_LENGTH);
       return bin2hex($bytes);
-      $_SESSION['token'] = get_csrf_token();
     }
+    $_SESSION['token'] = get_csrf_token();
 
     require_once('../common/common.php');
 

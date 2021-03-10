@@ -40,7 +40,6 @@
 
   try 
   {
-
     require_once('../common/common.php');
     require('../db/dbconnect.php');
 

@@ -1,5 +1,18 @@
 <?php
   session_start();
+  function get_csrf_token() 
+  {
+    $TOKEN_LENGTH = 16;
+    $bytes = openssl_random_pseudo_bytes($TOKEN_LENGTH);
+    return bin2hex($bytes);
+  }
+
+  if ($_POST['token'] != $_SESSION['token']) 
+    {
+    header('HTTP/1.1 301 Moved Permanently');
+    header('Location: ../error.php');
+    exit();
+    }
   session_regenerate_id(true);
   if(isset($_SESSION['login'])==false)
   {
@@ -25,16 +38,8 @@
 
   <?php
   
-  $token = $_POST['token'];
-  if ($token != $_SESSION['token']) 
-    {
-    header('HTTP/1.1 301 Moved Permanently');
-    header('Location: ../error.php');
-    exit();
-    }
   try 
   {
-
     require_once('../common/common.php');
 
     $post=sanitize($_POST);

@@ -9,6 +9,7 @@
 
   if ($_POST['token'] != $_SESSION['token']) 
     {
+    header('HTTP/1.1 301 Moved Permanently');
     header('Location: ../error.php');
     exit();
     }

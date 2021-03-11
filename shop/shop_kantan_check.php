@@ -1,5 +1,13 @@
 <?php
 session_start();
+function get_csrf_token() 
+{
+  $TOKEN_LENGTH = 16;
+  $bytes = openssl_random_pseudo_bytes($TOKEN_LENGTH);
+  return bin2hex($bytes);
+}
+$_SESSION['token'] = get_csrf_token();
+
 session_regenerate_id(true);
 if(isset($_SESSION['member_login'])==false)
 {
@@ -66,6 +74,7 @@ if(isset($_SESSION['member_login'])==false)
   print '<input type="hidden" name="postal2" value="'.$postal2.'">';
   print '<input type="hidden" name="address" value="'.$address.'">';
   print '<input type="hidden" name="tel" value="'.$tel.'">';
+  print '<input type="hidden" name="token" value="'.$_SESSION['token'].'">';
   print '<input type="button" onclick="history.back()" value="戻る">';
   print '<input type="submit" value="ＯＫ"><br />';
   print '</form>';

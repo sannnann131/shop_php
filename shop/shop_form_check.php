@@ -7,6 +7,14 @@
   <body>
 
   <?php
+  session_start();
+    function get_csrf_token() 
+    {
+      $TOKEN_LENGTH = 16;
+      $bytes = openssl_random_pseudo_bytes($TOKEN_LENGTH);
+      return bin2hex($bytes);
+    }
+    $_SESSION['token'] = get_csrf_token();
 
   require_once('../common/common.php');
 
@@ -126,6 +134,7 @@
     print '<input type="hidden" name="chumon" value="'.$chumon.'">';
     print '<input type="hidden" name="pass" value="'.$pass.'">';
     print '<input type="hidden" name="birth" value="'.$birth.'">';
+    print '<input type="hidden" name="token" value="'.$_SESSION['token'].'">';
     print '<input type="button" onclick="history.back()" value="戻る">';
     print '<input type="submit" value="ＯＫ"><br />';
     print '</form>';

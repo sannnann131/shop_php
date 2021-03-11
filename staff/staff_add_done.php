@@ -7,7 +7,7 @@
     return bin2hex($bytes);
   }
 
-  if ($_POST['token'] != $_SESSION['token']) 
+  if (empty($_SESSION['token']) ||$_POST['token'] != $_SESSION['token']) 
     {
     header('Location: ../error.php');
     exit();
